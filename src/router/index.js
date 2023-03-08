@@ -8,12 +8,18 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/qualifying',
-    name: 'qualifying',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "qualifying" */ '../views/QualifyingView.vue')
+    path: '/leaderboard',
+    redirect: '/leaderboard/laps'
+  },
+  {
+    path: '/leaderboard/laps',
+    name: 'laps_leaderboard',
+    component: () => import(/* webpackChunkName: "laps_leaderboard" */ '../views/leaderboard/LapsLeaderboardView.vue')
+  },
+  {
+    path: '/leaderboard/sectors',
+    name: 'sectors_leaderboard',
+    component: () => import(/* webpackChunkName: "sectors_leaderboard" */ '../views/leaderboard/SectorsLeaderboardView.vue')
   }
 ]
 

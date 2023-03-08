@@ -1,35 +1,65 @@
-$primary-light: #ff0022
-$primary: #ef0017
-$primary-dark: #d30016
+// Global Variables
+$primary: #ee0000
 
-$background: #1d1c22
-$background-light: #27272f
-$background-lighter: #3c3b40
+$background-darkest: #000000
+$background-dark: #15151e
+$background: #22222c
+$background-light: #38383f
+$background-lightest: #505054
 
 $font-light: #fff
 $font-dark: #000
 
-$purple: hsl(302, 89%, 49%)
-$yellow: hsl(63deg 92% 61%)
-$green: hsl(121deg 79% 54%)
+$green: #00ff00
+$yellow: #ffff00
+$purple: #ff00ff
 
-$redbull-color: #3671c6
-$ferrari-color: #f91536
-$mercedes-color: #6cd3bf
-$alpine-color: #2293d1
-$mclaren-color: #f58020
-$williams-color: #37bedd
-$alphatauri-color: #5e8faa
-$alfaromeo-color: #c92d4b
-$astonmartin-color: #358c75
-$haas-color: #b6babd
+// Fonts
+@font-face
+  font-family: 'Formula1 Display Regular'
+  src: url('@/assets/fonts/Formula1-Regular.woff2') format('woff2')
+  font-weight: normal
+  font-style: normal
 
-html body
+@font-face
+  font-family: 'Formula1 Display Torque'
+  src: url('@/assets/fonts/Formula1-Bold.woff2') format('woff2')
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'Formula1 Display Turbo'
+  src: url('@/assets/fonts/Formula1-Wide.woff2') format('woff2')
+  font-weight: normal
+  font-style: normal
+
+// Viewports Breakpoints
+$tablet-width: 768px
+$desktop-width: 1092px
+
+@mixin phone
+  @media screen and (max-width: #{$tablet-width - 1px})
+    @content
+
+@mixin tablet
+  @media screen and (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px})
+    @content
+
+@mixin desktop
+  @media screen and (min-width: #{$desktop-width})
+    @content
+
+// Global Style
+html, body
   margin: 0
   padding: 0
+  width: 100%
+  height: 100%
+
   font-family: Titillium Web, sans-serif
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   text-align: center
   color: $font-light
-  background-color: $background
+
+  background: $background repeating-linear-gradient(-45deg, $background-darkest, $background-darkest 5px, $background-dark 5px, $background-dark 10px)
